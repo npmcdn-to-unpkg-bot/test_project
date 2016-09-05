@@ -15,4 +15,4 @@ def retrieveInstanceList(request):
     logger.info("instance")
     f = os.popen("nova list")
     result =  f.read()
-    return render(request, 'instance/main.html', { 'result' : result })
+    return render(request, 'instance/index.html', { 'result' : result })
