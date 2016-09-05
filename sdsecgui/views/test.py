@@ -1,5 +1,7 @@
 #_*_coding:utf-8_*_
 
+import os
+
 from django.contrib.auth.models import User
 from django.shortcuts import render
 from django.utils import timezone
@@ -14,5 +16,6 @@ logger = getLogger(level=log_handler.INFO)
 
 
 def new_page(request):
+    os.system("openstack project list")
     logger.info("test")
     return render(request, 'test/main.html', {})
