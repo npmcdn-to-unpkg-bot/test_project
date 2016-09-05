@@ -21,5 +21,5 @@ def retrieveInstanceList(request):
     result = cmdOut.splitlines()
     for idx, value in enumerate(result):
         if value != "":
-            print "result[" + str(idx) + "] = " + value
+            print "result[" + str(idx) + "] = " + value + "/"
     return render(request, 'instance/index.html', { 'result' : result })
