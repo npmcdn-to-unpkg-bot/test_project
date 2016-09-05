@@ -6,8 +6,30 @@
 </head>
 <body>
     <div>
-        <p>{{ result }}</p>
-
+        <table>
+            <tr>
+                <th>프로젝트</th>
+                <th>호스트</th>
+                <th>이름</th>
+                <th>이미지 이름</th>
+                <th>IP 주소</th>
+                <th>크기</th>
+                <th>Status</th>
+                <th>작업</th>
+                <th>전원 상태</th>
+                <th>생성된 이후 시간</th>
+                <th>작업</th>
+            </tr>
+            {% for instance in instanceList%}
+                <tr>
+                    {% for key in instance.keys() %}
+                        <td>{{ instance[key] }}</td>
+                    {% endfor %}
+                </tr>
+            {% endfor %}
+        </table>
+        <!--<p class="post{{ forloop.counter }}">{{ post.text|linebreaksbr }}</p>-->
+        <!--<p>{{ instanceList }}</p>-->
     </div>
 </body>
 </html>

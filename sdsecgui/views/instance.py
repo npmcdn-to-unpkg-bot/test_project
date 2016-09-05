@@ -22,7 +22,13 @@ def retrieveInstanceList(request):
     row.remove("")
     row.remove("")
     row.remove("")
-    # print row[0][1:-1]
-    for idx, value in enumerate(row):
-        print "result[" + str(idx) + "] = " + value[1:-1] + "/"
-    return render(request, 'instance/index.html', { 'result' : row })
+    colNmList = row[0][1:-1].split("|")
+    instanceList = []
+    for value in row[1:]:
+        instanceDic = {}
+        colList = value[1:-1].split("|")
+        for idx, col in enumerate(colList):
+            instanceDic[colNmList[idx]] = col
+        instanceList.append(instanceDic)
+    print instanceList
+    return render(request, 'instance/index.html', { 'instanceList' : instanceList })
