@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    {% load staticfiles %}
+    <script data-require="d3@3.5.3" data-semver="3.5.3" src="http://cdnjs.cloudflare.com/ajax/libs/d3/3.5.3/d3.js"></script>
+    <!--<script src='http://d3js.org/d3.v3.min.js'></script>-->
+
+    <script src='{% static "js/d3-context-menu.js" %}'></script>
+
+
+    <style>
+		.d3-context-menu {
+			position: absolute;d
+			display: none;
+			background-color: #f2f2f2;
+			border-radius: 4px;
+			font-family: Arial, sans-serif;
+			font-size: 14px;
+			min-width: 150px;
+			border: 1px solid #d4d4d4;
+			z-index:1200;
+		}
+
+		.d3-context-menu ul {
+			list-style-type: none;
+			margin: 4px 0px;
+			padding: 0px;
+			cursor: default;
+		}
+
+		.d3-context-menu ul li {
+			padding: 4px 16px;
+		}
+
+		.d3-context-menu ul li:hover {
+			background-color: #4677f8;
+			color: #fefefe;
+		}
+
+		.node {
+		  cursor: pointer;
+		}
+
+		.node circle {
+		  fill: #fff;
+		  stroke: steelblue;
+		  stroke-width: 1.5px;
+		}
+
+		.node text {
+		  font: 10px sans-serif;
+		}
+
+		.link {
+		  fill: none;
+		  stroke: #ccc;
+		  stroke-width: 1.5px;
+		}
+    </style>
+</head>
+<body>
+    우클릭 메뉴 테스트<br>
+    <script src='{% static "js/test1.js" %}'></script>
+
+</body>
+</html>

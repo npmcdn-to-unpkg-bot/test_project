@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    {% load staticfiles %}
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <link rel="stylesheet" href="{% static 'js/customdirect/css/direct.app.css' %}">
+</head>
+<body>
+    <div id="vis"></div>
+    <div id="node_info">
+        <table id="nameTable">
+        </table>
+        <table id="infoTable">
+        </table>
+    </div>
+    <img src='{% static "img/getting_started_with_python.png" %}' alt="My image"/>
+</body>
+    <!--<script src="{% static 'js/customdirect/js/partitions.js' %}"></script>-->
+    <!--<script src="{% static 'js/customdirect/js/partitions_index.js' %}"></script>-->
+    <script src='http://d3js.org/d3.v3.min.js'></script>
+    <script src="{% static 'js/customdirect/js/direct.js' %}"></script>
+</html>

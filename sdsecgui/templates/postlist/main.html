@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <title>Django blog</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+</head>
+<body>
+    <div class="container">
+        <nav class="navbar navbar-inverse">
+            <div>
+                <a href="" class="navbar-brand">JinSik's Django Blog</a>
+            </div>
+        </nav>
+        <div class="row">
+            <div class="col-md-10"></div>
+            <div class="col-md-2">
+                <button type="button" class="btn btn-success" id="showBtn">글쓰기</button>
+                <button type="button" class="btn btn-success" id="writeBtn">완료</button>
+            </div>
+        </div>
+        <div class="row writeDir">
+            <br/>
+            <div class="input-group">
+                <span class="input-group-addon" id="basic-addon1">제목</span>
+                <input type="text" class="form-control" id="title" placeholder="제목을 입력하세요." aria-describedby="basic-addon1">
+            </div>
+            <br/>
+            <div class="input-group">
+                <span class="input-group-addon" id="basic-addon2">내용</span>
+                <input type="text" class="form-control" id="text" placeholder="내용을 입력하세요." aria-describedby="basic-addon2">
+            </div>
+        </div>
+        {% for post in posts%}
+        <div class="row">
+            <h3><a href="javascript:myFunction('{{ forloop.counter }}')" id="post{{ forloop.counter }}">{{ post.title }}</a></h3>
+            <p class="post{{ forloop.counter }}">{{ post.text|linebreaksbr }}</p>
+            <p class="post{{ forloop.counter }}">---------------------------------------------------------------------</p>
+            <p class="post{{ forloop.counter }}">published : {{ post.published_date }}</p>
+        </div>
+        {% endfor %}
+
+        {% load staticfiles %}
+        <img src='{% static "img/myexample.jpg" %}' alt="My image"/>
+    </div>
+</body>
+<script>
+    writeStat = false;
+
+    $("#writeBtn").click(function(){
+        title = $("#title").val();
+        text  = $("#text" ).val();
+        $.ajax({
+            url : '/add_post/',
+            data : {title:title, text:text},
+            success:function(data){
+                $('body').append("<h3>글이 성공적으로 등록되었습니다.</h3>");
+
+                alert("글이 성공적으로 등록되었습니다.");
+                location.reload(true);
+            }
+        });
+    });
+
+    for(i = 1; i <= {{posts.count}}; i++){
+        $("p.post"+i).hide();
+    }
+    $(".writeDir").hide();
+    $("#writeBtn").hide();
+    $("#showBtn").click(function(){
+        if(writeStat){
+            $("#showBtn").text("글쓰기");
+            $("#showBtn").removeClass("btn-danger");
+            $("#showBtn").addClass("btn-success");
+            $("#writeBtn").hide();
+            $(".writeDir").hide();
+            $(".writeDir input").val("");
+            writeStat = !writeStat
+        } else {
+            $("#showBtn").text(" 취 소 ");
+            $("#showBtn").removeClass("btn-success");
+            $("#showBtn").addClass("btn-danger");
+            $("#writeBtn").show();
+            $(".writeDir").show();
+            writeStat = !writeStat
+        }
+    });
+    function myFunction(index){
+        $("p.post"+index).toggle();
+    }
+</script>
+</html>
