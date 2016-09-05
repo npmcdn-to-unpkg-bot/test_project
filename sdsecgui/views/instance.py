@@ -19,6 +19,7 @@ def retrieveInstanceList(request):
     while "  " in cmdOut:
         cmdOut = cmdOut.replace("  ", " ")
     result = cmdOut.splitlines()
+    result.remove("")
     for idx, value in enumerate(result):
         if value != "":
             print "result[" + str(idx) + "] = " + value + "/"
