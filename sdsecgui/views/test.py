@@ -17,6 +17,7 @@ logger = getLogger(level=log_handler.INFO)
 
 def new_page(request):
     os.system("openstack project list")
-
+    f = os.popen("openstack project list")
+    print f.read()
     logger.info("test")
     return render(request, 'test/main.html', {})
