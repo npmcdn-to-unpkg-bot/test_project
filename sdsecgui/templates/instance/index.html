@@ -22,9 +22,12 @@
             </tr>
             {% for instance in instanceList%}
                 <tr>
-                    {% for key in instance.keys() %}
-                        <td>{{ instance[key] }}</td>
-                    {% endfor %}
+                    <td>{{ instance.name }}</td>
+                    <td>{{ instance.power_state }}</td>
+                    <td>{{ instance.networks }}</td>
+                    <td>{{ instance.id }}</td>
+                    <td>{{ instance.status }}</td>
+                    <td>{{ instance.task_state }}</td>
                 </tr>
             {% endfor %}
         </table>

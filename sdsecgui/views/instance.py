@@ -28,7 +28,9 @@ def retrieveInstanceList(request):
         instanceDic = {}
         colList = value[1:-1].split("|")
         for idx, col in enumerate(colList):
-            instanceDic[colNmList[idx]] = col
+            key = colNmList[idx].lower().strip().replace(" ", "_")
+            value = col.strip()
+            instanceDic[key] = value
         instanceList.append(instanceDic)
     print instanceList
     return render(request, 'instance/index.html', { 'instanceList' : instanceList })
