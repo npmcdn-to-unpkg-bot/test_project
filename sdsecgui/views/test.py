@@ -16,8 +16,12 @@ logger = getLogger(level=log_handler.INFO)
 
 
 def new_page(request):
-    f = os.popen("openstack project list")
-    str =  f.read()
-    print str.replace("+","").replace("-","")
     logger.info("test")
     return render(request, 'test/main.html', {})
+
+def retrieveUsage(request):
+
+    start = request.start
+    end = request.end
+    f = os.popen("openstack useage list --start " + start + " --end " + end)
+    str =  f.read()

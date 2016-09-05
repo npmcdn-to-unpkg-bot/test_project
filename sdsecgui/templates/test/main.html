@@ -16,9 +16,30 @@
         </table>
     </div>
     <img src='{% static "img/getting_started_with_python.png" %}' alt="My image"/>
+    <input type="date" id="start"> ~ <input type="date" id="end"> <input type="button" id="submitBtn">
+
 </body>
     <!--<script src="{% static 'js/customdirect/js/partitions.js' %}"></script>-->
     <!--<script src="{% static 'js/customdirect/js/partitions_index.js' %}"></script>-->
     <script src='http://d3js.org/d3.v3.min.js'></script>
     <script src="{% static 'js/customdirect/js/direct.js' %}"></script>
+    <script>
+        $('#submitBtn').on('click', function(){
+            start = $('#start').val();
+            end = $('#end').val();
+
+            /*
+            $.ajax({
+                url : '/add_post/',
+                data : {title:title, text:text},
+                success:function(data){
+                    $('body').append("<h3>글이 성공적으로 등록되었습니다.</h3>");
+
+                    alert("글이 성공적으로 등록되었습니다.");
+                    location.reload(true);
+                }
+            */
+            });
+        });
+    </script>
 </html>
