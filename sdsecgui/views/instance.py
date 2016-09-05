@@ -18,11 +18,11 @@ def retrieveInstanceList(request):
     cmdOut =  f.read().replace("+", "").replace("-", "")
     while "  " in cmdOut:
         cmdOut = cmdOut.replace("  ", " ")
-    result = cmdOut.splitlines()
-    result.remove("")
-    result.remove("")
-    result.remove("")
-    for idx, value in enumerate(result):
-        if value != "":
-            print "result[" + str(idx) + "] = " + value + "/"
-    return render(request, 'instance/index.html', { 'result' : result })
+    row = cmdOut.splitlines()
+    row.remove("")
+    row.remove("")
+    row.remove("")
+    # print row[0][1:-1]
+    for idx, value in enumerate(row):
+        print "result[" + str(idx) + "] = " + value[1:-1] + "/"
+    return render(request, 'instance/index.html', { 'result' : row })
