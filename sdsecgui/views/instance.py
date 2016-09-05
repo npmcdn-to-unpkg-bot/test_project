@@ -15,5 +15,10 @@ logger = getLogger(level=log_handler.INFO)
 def retrieveInstanceList(request):
     logger.info("instance")
     f = os.popen("nova list")
-    result =  re.escape(f.read().replace("+", "").replace("-", ""))
+    cmdOut =  f.read().replace("+", "").replace("-", "")
+    while "  " in cmdOut:
+        cmdOut = cmdOut.replace("  ", " ")
+    result = cmdOut.splitlines()
+    for idx, value in enumerate(result):
+        print "result[" + str(idx) + "] = " + value
     return render(request, 'instance/index.html', { 'result' : result })
