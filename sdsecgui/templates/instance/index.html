@@ -22,17 +22,17 @@
             </tr>
             {% for instance in instanceList%}
                 <tr>
-                    <td>프</td>
-                    <td>호</td>
+                    <td>-</td>
+                    <td>-</td>
                     <td>{{ instance.name }}</td>
-                    <td>이</td>
+                    <td>-</td>
                     <td>{{ instance.networks }}</td>
-                    <td>크</td>
+                    <td>-</td>
                     <!--<td>{{ instance.id }}</td>-->
                     <td>{{ instance.status }}</td>
                     <td>{{ instance.task_state }}</td>
                     <td>{{ instance.power_state }}</td>
-                    <td>생</td>
+                    <td>-</td>
                     <td><button>인스턴스 편집</button><button>▼</button></td>
                 </tr>
             {% endfor %}
