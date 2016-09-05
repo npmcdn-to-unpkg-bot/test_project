@@ -15,19 +15,25 @@
                 <th>IP 주소</th>
                 <th>크기</th>
                 <th>Status</th>
-                <th>작업</th>
+                <th>task</th>
                 <th>전원 상태</th>
                 <th>생성된 이후 시간</th>
                 <th>작업</th>
             </tr>
             {% for instance in instanceList%}
                 <tr>
+                    <td>프</td>
+                    <td>호</td>
                     <td>{{ instance.name }}</td>
-                    <td>{{ instance.power_state }}</td>
+                    <td>이</td>
                     <td>{{ instance.networks }}</td>
-                    <td>{{ instance.id }}</td>
+                    <td>크</td>
+                    <!--<td>{{ instance.id }}</td>-->
                     <td>{{ instance.status }}</td>
                     <td>{{ instance.task_state }}</td>
+                    <td>{{ instance.power_state }}</td>
+                    <td>생</td>
+                    <td><button>인스턴스 편집</button><button>▼</button></td>
                 </tr>
             {% endfor %}
         </table>
