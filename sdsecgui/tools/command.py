@@ -13,7 +13,6 @@ logger = getLogger(level=log_handler.INFO)
 def excuteCmd(command):
     logger.debug("excuteCmd")
     f = os.popen(command)
-    logger.debug(command)
     logger.debug(f.read())
     print f.read()
     return f
