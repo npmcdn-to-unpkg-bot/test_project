@@ -41,6 +41,7 @@ def parsingOutputToList(output):
 
 def getInstanceList():
     logger.debug("getInstanceList")
+    print os.popen("nova list").read()
     f = excuteCmd("nova list")
     instanceList = parsingOutputToList(f)
     return instanceList
