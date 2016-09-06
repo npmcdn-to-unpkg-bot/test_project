@@ -19,9 +19,8 @@ def retrieveInstanceList(request):
     while "  " in cmdOut:
         cmdOut = cmdOut.replace("  ", " ")
     row = cmdOut.splitlines()
-    row.remove("")
-    row.remove("")
-    row.remove("")
+    while "" in row:
+        row.remove("")
     colNmList = row[0][1:-1].split("|")
     instanceList = []
     for value in row[1:]:
