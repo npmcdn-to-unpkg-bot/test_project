@@ -19,19 +19,23 @@ def excuteCmd(command):
 
 def parsingOutputToList(output):
     rows = output.read().splitlines()
-    keyList = rows[1][1:-1].split("|")
-    for idx, key in enumerate(keyList):
-        keyList[idx] = key.lower().strip().replace(" ", "_")
-    resultList = []
-    for row in rows[3:-1]:
-        resultDic = {}
-        cols = row[1:-1].split("|")
-        for idx, col in enumerate(cols):
-            key = keyList[idx]
-            value = col.strip()
-            resultDic[key] = value
-        resultList.append(resultDic)
-    return resultList
+    if rows:
+        keyList = rows[1][1:-1].split("|")
+        for idx, key in enumerate(keyList):
+            keyList[idx] = key.lower().strip().replace(" ", "_")
+        resultList = []
+        for row in rows[3:-1]:
+            resultDic = {}
+            cols = row[1:-1].split("|")
+            for idx, col in enumerate(cols):
+                key = keyList[idx]
+                value = col.strip()
+                resultDic[key] = value
+            resultList.append(resultDic)
+        return resultList
+    else:
+        logger.debug("List is empty")
+        return None
 
 
 def getInstanceList():
