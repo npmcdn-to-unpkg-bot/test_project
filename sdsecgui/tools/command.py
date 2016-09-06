@@ -15,6 +15,7 @@ def excuteCmd(command):
     f = os.popen(command)
     logger.debug(command)
     logger.debug(f.read())
+    print f.read()
     return f
 
 def parsingOutputToList(output):
