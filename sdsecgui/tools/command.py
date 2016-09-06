@@ -2,8 +2,18 @@
 
 import os
 
+from sdsec import log_handler
+from sdsec.log_handler import setLogDir, getLogger
+
+#로그불러왓!
+setLogDir()
+logger = getLogger(level=log_handler.INFO)
+
+
 def getInstanceList():
+    logger.debug("getInstanceList")
     f = os.popen("nova list")
+    logger.debug(f.read())
     cmdOut = f.read().replace("+", "").replace("-", "")
     while "  " in cmdOut:
         cmdOut = cmdOut.replace("  ", " ")
@@ -18,5 +28,4 @@ def getInstanceList():
             value = col.strip()
             instanceDic[key] = value
         instanceList.append(instanceDic)
-    print instanceList
     return instanceList
