@@ -13,12 +13,12 @@ logger = getLogger(level=log_handler.INFO)
 def excuteCmd(command):
     logger.debug("excuteCmd")
     f = os.popen(command)
-    # logger.debug(f.read())
-    print f.read()
-    return f
+    result = f.read()
+    logger.debug(result)
+    return result
 
 def parsingOutputToList(output):
-    rows = output.read().splitlines()
+    rows = output.splitlines()
     print rows
     if rows:
         keyList = rows[1][1:-1].split("|")
@@ -41,8 +41,6 @@ def parsingOutputToList(output):
 
 def getInstanceList():
     logger.debug("getInstanceList")
-    # os.popen("nova list").read()
-
-    a = excuteCmd("nova list")
-    instanceList = parsingOutputToList(a)
+    output = excuteCmd("nova list")
+    instanceList = parsingOutputToList(output)
     return instanceList
