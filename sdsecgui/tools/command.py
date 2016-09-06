@@ -19,6 +19,7 @@ def excuteCmd(command):
 
 def parsingOutputToList(output):
     rows = output.read().splitlines()
+    print rows
     if rows:
         keyList = rows[1][1:-1].split("|")
         for idx, key in enumerate(keyList):
