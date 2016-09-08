@@ -8,7 +8,7 @@ from sdsecgui.tools.command import getInstanceList
 
 #로그불러왓!
 setLogDir()
-logger = getLogger(level=log_handler.INFO)
+logger = getLogger()
 
 
 def retrieveInstanceList(request):

@@ -10,7 +10,7 @@ from sdsec import log_handler
 from sdsec.log_handler import setLogDir, getLogger
 
 setLogDir()
-logger = getLogger(level=log_handler.INFO)
+logger = getLogger()
 
 def page(request, page_name):
     return render(request, 'd3test/' + page_name + '.html', {})

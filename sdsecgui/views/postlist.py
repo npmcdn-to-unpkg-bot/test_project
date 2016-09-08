@@ -9,7 +9,7 @@ from sdsec import log_handler
 from sdsec.log_handler import setLogDir, getLogger
 
 setLogDir()
-logger = getLogger(level=log_handler.INFO)
+logger = getLogger()
 
 
 def post_list(request):

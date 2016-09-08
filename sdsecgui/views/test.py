@@ -12,7 +12,7 @@ from sdsec.log_handler import setLogDir, getLogger
 
 #로그불러왓!
 setLogDir()
-logger = getLogger(level=log_handler.INFO)
+logger = getLogger()
 
 
 def new_page(request):
