@@ -5,7 +5,6 @@ from django.shortcuts import render
 from django.utils import timezone
 
 from sdsecgui.models import Post
-from sdsec import log_handler
 from sdsec.log_handler import setLogDir, getLogger
 
 setLogDir()
