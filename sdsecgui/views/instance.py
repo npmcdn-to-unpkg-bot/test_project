@@ -5,7 +5,7 @@ from django.shortcuts import render
 from sdsec import log_handler
 from sdsec.log_handler import setLogDir, getLogger
 from sdsecgui.tools.command import getInstanceList
-from sdsecgui.model.instance import Instance
+from sdsecgui.cmodels.instance import Instance
 
 #로그불러왓!
 setLogDir()
