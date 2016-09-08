@@ -9,5 +9,5 @@ urlpatterns = [
     url(r'^new_page/$', test.new_page, name='new_page'),
     url(r'^d3test/(?P<page_name>\w+)/$', d3test.page, name='page'),
     url(r'^instance/$', instance.retrieveInstanceList, name='instanceList'),
-    url(r'^instance/(?P<instance_id>\w+)/$', instance.retrieveInstanceById, name='instance'),
+    url(r'^instance/(?P<instance_id>[\w\-]+)/$', instance.retrieveInstanceById, name='instance'),
 ]
