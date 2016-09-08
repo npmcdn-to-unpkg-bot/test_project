@@ -2,15 +2,10 @@
 
 import os
 
-from django.contrib.auth.models import User
 from django.shortcuts import render
-from django.utils import timezone
 
-from sdsecgui.models import Post
-from sdsec import log_handler
 from sdsec.log_handler import setLogDir, getLogger
 
-#로그불러왓!
 setLogDir()
 logger = getLogger()
 
