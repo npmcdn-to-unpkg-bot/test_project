@@ -32,7 +32,7 @@ def getLogger(loggerName='myLogger', level=DEBUG):
     logger = logging.getLogger(loggerName)
 
     # 포매터를 만든다
-    fomatter = logging.Formatter('[%(levelname)s|%(filename)s:%(lineno)s] %(asctime)s > %(message)s')
+    fomatter = logging.Formatter('[%(levelname)s|%(filename)s:%(lineno)s] %(asctime)s >\n %(message)s')
 
     # 스트림과 파일로 로그를 출력하는 핸들러를 각각 만든다.
     filename = fileName.decode(UTF_8)
