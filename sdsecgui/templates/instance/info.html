@@ -7,43 +7,19 @@
 <body>
     <div>
         <table border="1">
-            <!--<tr>-->
-                <!--<th>프로젝트</th>-->
-                <!--<th>호스트</th>-->
-                <!--<th>이름</th>-->
-                <!--<th>이미지 이름</th>-->
-                <!--<th>IP 주소</th>-->
-                <!--<th>크기</th>-->
-                <!--<th>Status</th>-->
-                <!--<th>task</th>-->
-                <!--<th>전원 상태</th>-->
-                <!--<th>생성된 이후 시간</th>-->
-            <!--</tr>-->
-            <!--{% for instance in instanceList%}-->
-                <!--<tr>-->
-                    <!--<td>-</td>-->
-                    <!--<td>-</td>-->
-                    <!--<td>{{ instance.name }}</a></td>-->
-                    <!--<td>-</td>-->
-                    <!--<td>{{ instance.networks }}</td>-->
-                    <!--<td>-</td>-->
-                    <!--&lt;!&ndash;<td>{{ instance.id }}</td>&ndash;&gt;-->
-                    <!--<td>{{ instance.status }}</td>-->
-                    <!--<td>{{ instance.task_state }}</td>-->
-                    <!--<td>{{ instance.power_state }}</td>-->
-                    <!--<td>-</td>-->
-                <!--</tr>-->
-            <!--{% endfor %}-->
+            <tr>
+                <th>이름</th><td>{{ instance.name }}</td>
+                <th>id</th><td>{{ instance.id}}</td>
+                <th>image</th><td>{{ instance.image}}</td>
+                <th>key_name</th><td>{{ instance.key_name}}</td>
+                <th>locked</th><td>{{ instance.locked}}</td>
+                <th>metadata</th><td>{{ instance.metadata}}</td>
+                <th>name</th><td>{{ instance.name}}</td>
+                <th>os_extended_volumes</th><td>{{ instance.os_extended_volumes}}</td>
+                <th>progress</th><td>{{ instance.progress}}</td>
+            </tr>
         </table>
-        {{ instance }}
-        {{ instance.id}}
-        {{ instance.image}}
-        {{ instance.key_name}}
-        {{ instance.locked}}
-        {{ instance.metadata}}
-        {{ instance.name}}
-        {{ instance.os_extended_volumes}}
-        {{ instance.progress}}
+
         <!--<p class="post{{ forloop.counter }}">{{ post.text|linebreaksbr }}</p>-->
         <!--<p>{{ instanceList }}</p>-->
     </div>
