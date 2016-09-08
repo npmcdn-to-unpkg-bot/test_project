@@ -27,7 +27,7 @@ def setLogDir(directory=r"static/logs"):
     fileName = join(directory, s)
 
 
-def getLogger(loggerName='myLogger', level=logging.DEBUG):
+def getLogger(loggerName='myLogger', level=DEBUG):
     # 로거 인스턴스를 만든다
     logger = logging.getLogger(loggerName)
 
