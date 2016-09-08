@@ -16,6 +16,36 @@ def excuteCmd(command):
     result = f.read()
     logger.debug(result)
     return result
+
+
+def parsingOutputToList(output):
+    rows = output.splitlines()
+    if rows:
+        keyList = rows[1][1:-1].split("|")
+        for idx, key in enumerate(keyList):
+            keyList[idx] = key.lower().strip().replace(" ", "_")
+        resultList = []
+        for row in rows[3:-1]:
+            resultDic = {}
+            cols = row[1:-1].split("|")
+            for idx, col in enumerate(cols):
+                key = keyList[idx]
+                value = col.strip()
+                resultDic[key] = value
+            resultList.append(resultDic)
+        return resultList
+    else:
+        logger.debug("List is empty")
+        return None
+
+
+def getInstanceList():
+    logger.debug("getInstanceList")
+    output = excuteCmd("nova list --all-tenants")
+    instanceList = parsingOutputToList(output)
+
+    return instanceList
+
 class Instance:
     def showInstanceById(self, id):
         logger.debug("showInstanceById")
@@ -124,32 +154,3 @@ class Instance:
         self.tenant_id =                               instanceDic["tenant_id"]
         self.updated =                                 instanceDic["updated"]
         self.user_id =                                 instanceDic["user_id"]
-
-
-    def parsingOutputToList(self, output):
-        rows = output.splitlines()
-        if rows:
-            keyList = rows[1][1:-1].split("|")
-            for idx, key in enumerate(keyList):
-                keyList[idx] = key.lower().strip().replace(" ", "_")
-            resultList = []
-            for row in rows[3:-1]:
-                resultDic = {}
-                cols = row[1:-1].split("|")
-                for idx, col in enumerate(cols):
-                    key = keyList[idx]
-                    value = col.strip()
-                    resultDic[key] = value
-                resultList.append(resultDic)
-            return resultList
-        else:
-            logger.debug("List is empty")
-            return None
-
-
-    def getInstanceList(self):
-        logger.debug("getInstanceList")
-        output = excuteCmd("nova list --all-tenants")
-        instanceList = self.parsingOutputToList(output)
-
-        return instanceList
