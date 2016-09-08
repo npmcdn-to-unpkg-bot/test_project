@@ -21,56 +21,54 @@ class Instance:
         output = excuteCmd("nova show " + id)
         rows = output.splitlines()
         if rows:
-            resultList = []
+            instanceDic = {
+                "OS-DCF:diskConfig": "",
+                "OS-EXT-AZ:availability_zone": "",
+                "OS-EXT-SRV-ATTR:host": "",
+                "OS-EXT-SRV-ATTR:hostname": "",
+                "OS-EXT-SRV-ATTR:hypervisor_hostnam": "",
+                "OS-EXT-SRV-ATTR:instance_name": "",
+                "OS-EXT-SRV-ATTR:kernel_id": "",
+                "OS-EXT-SRV-ATTR:launch_index": "",
+                "OS-EXT-SRV-ATTR:ramdisk_id": "",
+                "OS-EXT-SRV-ATTR:reservation_id": "",
+                "OS-EXT-SRV-ATTR:root_device_name": "",
+                "OS-EXT-SRV-ATTR:user_data": "",
+                "OS-EXT-STS:power_state": "",
+                "OS-EXT-STS:task_state": "",
+                "OS-EXT-STS:vm_state": "",
+                "OS-SRV-USG:launched_at": "",
+                "OS-SRV-USG:terminated_at": "",
+                "accessIPv4": "",
+                "accessIPv6": "",
+                "config_drive": "",
+                "created": "",
+                "description": "",
+                "flavor": "",
+                "hostId": "",
+                "host_status": "",
+                "id": "",
+                "image": "",
+                "key_name": "",
+                "locked": "",
+                "metadata": "",
+                "name": "",
+                "os-extended-volumes:volumes_attached": "",
+                "progress": "",
+                "public_network": "",
+                "security_groups": "",
+                "status": "",
+                "tags": "",
+                "tenant_id": "",
+                "updated": "",
+                "user_id": "",
+            }
             for row in rows[3:-1]:
-                instanceDic = {
-                    "OS-DCF:diskConfig": "",
-                    "OS-EXT-AZ:availability_zone": "",
-                    "OS-EXT-SRV-ATTR:host": "",
-                    "OS-EXT-SRV-ATTR:hostname": "",
-                    "OS-EXT-SRV-ATTR:hypervisor_hostnam": "",
-                    "OS-EXT-SRV-ATTR:instance_name": "",
-                    "OS-EXT-SRV-ATTR:kernel_id": "",
-                    "OS-EXT-SRV-ATTR:launch_index": "",
-                    "OS-EXT-SRV-ATTR:ramdisk_id": "",
-                    "OS-EXT-SRV-ATTR:reservation_id": "",
-                    "OS-EXT-SRV-ATTR:root_device_name": "",
-                    "OS-EXT-SRV-ATTR:user_data": "",
-                    "OS-EXT-STS:power_state": "",
-                    "OS-EXT-STS:task_state": "",
-                    "OS-EXT-STS:vm_state": "",
-                    "OS-SRV-USG:launched_at": "",
-                    "OS-SRV-USG:terminated_at": "",
-                    "accessIPv4": "",
-                    "accessIPv6": "",
-                    "config_drive": "",
-                    "created": "",
-                    "description": "",
-                    "flavor": "",
-                    "hostId": "",
-                    "host_status": "",
-                    "id": "",
-                    "image": "",
-                    "key_name": "",
-                    "locked": "",
-                    "metadata": "",
-                    "name": "",
-                    "os-extended-volumes:volumes_attached": "",
-                    "progress": "",
-                    "public_network": "",
-                    "security_groups": "",
-                    "status": "",
-                    "tags": "",
-                    "tenant_id": "",
-                    "updated": "",
-                    "user_id": "",
-                }
                 cols = row[1:-1].split("|")
-
                 key = cols[0].strip().replace(" ", "_")
                 value = cols[1].strip()
                 instanceDic[key] = value
-            return resultList
+            return instanceDic
         else:
             logger.debug(id + "에 해당하는 인스턴스가 없습니다.")
             return None
