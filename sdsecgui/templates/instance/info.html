@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>instance</title>
+</head>
+<body>
+    <div>
+        <table border="1">
+            <!--<tr>-->
+                <!--<th>프로젝트</th>-->
+                <!--<th>호스트</th>-->
+                <!--<th>이름</th>-->
+                <!--<th>이미지 이름</th>-->
+                <!--<th>IP 주소</th>-->
+                <!--<th>크기</th>-->
+                <!--<th>Status</th>-->
+                <!--<th>task</th>-->
+                <!--<th>전원 상태</th>-->
+                <!--<th>생성된 이후 시간</th>-->
+            <!--</tr>-->
+            <!--{% for instance in instanceList%}-->
+                <!--<tr>-->
+                    <!--<td>-</td>-->
+                    <!--<td>-</td>-->
+                    <!--<td>{{ instance.name }}</a></td>-->
+                    <!--<td>-</td>-->
+                    <!--<td>{{ instance.networks }}</td>-->
+                    <!--<td>-</td>-->
+                    <!--&lt;!&ndash;<td>{{ instance.id }}</td>&ndash;&gt;-->
+                    <!--<td>{{ instance.status }}</td>-->
+                    <!--<td>{{ instance.task_state }}</td>-->
+                    <!--<td>{{ instance.power_state }}</td>-->
+                    <!--<td>-</td>-->
+                <!--</tr>-->
+            <!--{% endfor %}-->
+        </table>
+        {{ instance }}
+        {% for i in instance%}
+            {{i}}
+        {% end for %}
+        <!--<p class="post{{ forloop.counter }}">{{ post.text|linebreaksbr }}</p>-->
+        <!--<p>{{ instanceList }}</p>-->
+    </div>
+</body>
+</html>
