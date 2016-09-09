@@ -76,7 +76,7 @@ class Instance:
     def __init__(self, id):
         instanceDic = self.showInfoById(id)
         if instanceDic == None:
-            raise Exception, id + "에 해당하는 인스턴스가 없습니다."
+            raise Exception, unicode(id).encode("utf-8") + "에 해당하는 인스턴스가 없습니다."
         self.os_dce = {}
         self.os_ext_az = {}
         self.os_ext_srv_attr = {}
