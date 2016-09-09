@@ -70,7 +70,7 @@ class Instance:
             }
             return self.outputToInfo(instanceDic, outputList)
         else:
-            logger.debug(id + "에 해당하는 인스턴스가 없습니다.")
+            logger.debug(str(id + "에 해당하는 인스턴스가 없습니다."))
             return None
 
     def __init__(self, id):
