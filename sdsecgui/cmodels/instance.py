@@ -12,10 +12,11 @@ class Instance:
             cols = row[1:-1].split("|")
             key = cols[0].strip().replace(" ", "_")
             value = cols[1].strip()
-            if infoDic.get(key):
-                infoDic[key] = value
-            else:
-                raise Exception, key + "에 해당하는 키가 없습니다."
+            infoDic[key] = value
+            # if infoDic.get(key):
+            #     infoDic[key] = value
+            # else:
+            #     raise Exception, key + "에 해당하는 키가 없습니다."
         return infoDic
 
     def showInfoById(self, id):
